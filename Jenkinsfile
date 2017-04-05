@@ -1,9 +1,13 @@
 pipeline {
-    agent { docker 'php' }
+    agent any
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'php 7.0.17'
+                sh 'echo "Hello World"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
             }
         }
     }
